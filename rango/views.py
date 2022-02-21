@@ -1,6 +1,4 @@
-from unicodedata import category
 from django.shortcuts import render
-from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm,PageForm
@@ -18,6 +16,8 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
+    print(request.method)
+    print(request.user)
     context_dict = {'boldmessage': 'This tutorial has been put together by shuyu Li.'}
     return render(request,'rango/about.html',context_dict)
 
